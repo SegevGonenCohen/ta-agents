@@ -1,0 +1,95 @@
+max_iters: 30
+
+course:
+  level: Master
+  topics:
+    - Riemannian connections
+    - Transvections, parallel transport
+    - Riemannian symmetric pairs, relation to riemannian symmetric spaces
+  notes_pages: "23-42"
+  target_total_minutes: 300
+  sheet_length_pages: 3
+  policy: |
+    Include at least one computational matrix exercise.
+    Include one conceptual “explain in words” exercise.
+    Include multiple examples and counterexamples
+style_guide:
+  template_tex: |
+    \documentclass{article}
+    \usepackage{amsmath}
+    \usepackage[utf8]{inputenc}
+    \usepackage{amssymb, amsmath, graphicx}
+    \usepackage{graphicx}
+    \usepackage{epsfig}
+    \usepackage{fancyhdr}
+    \usepackage{enumitem,mathtools}
+    \usepackage{a4wide}
+    \usepackage{amsthm}
+    \usepackage{geometry}
+    \usepackage{tikz,tikz-cd}
+    \usepackage[backgroundcolor=gray!8]{mdframed}
+
+    \newtheorem{theorem}{Theorem}
+
+    \theoremstyle{definition}
+    \newtheorem{exercise}[theorem]{Exercise}
+    \newtheorem*{solution*}{Solution}
+
+
+    %\newcommand{\mc}[1]{\mathcal{#1}}
+    %\newcommand{\NN}{\mathbb{N}}
+    %\newcommand{\p}[1]{\left( #1 \right)}
+    %\def\ol{\overline}
+    \newcommand{\bbH}{\mathbb{H}}
+    \newcommand{\bbR}{\mathbb{R}}
+    \newcommand{\Z}{\mathbb{Z}}
+
+
+    \input{../../exrepo2/definitions}
+
+    \input{../../exrepo2/mcm}
+    \hidesolution
+
+
+    \begin{document}
+
+    \intro{%
+    \noindent
+    \rlap{Prof. Dr. A. Iozzi\\~\\}\hfill Symmetric Spaces \hfill\llap{HS 2024} \\~\\~\\
+    {\centerline{\LARGE \textbf{Solutions Exercise Sheet 1}}}
+    ~\\
+
+    \hrule\bigskip%
+    }%
+
+    %%%%%%%%%%%% QUESTION 1 %%%%%%%%%%%%%%%
+    \begin{enumerate}\item[1.] Let $G=\SL_{2}(\mathbb{R})$. The aim of this exercise is to show that $G_{\mathbb{Z}}=\SL_{2}(\mathbb{Z})$ is a lattice in $G$.
+    \begin{enumerate}
+    \item Argue that $G_{\mathbb{Z}}$ is discrete in $G$ and that both $G$ and $G_{\mathbb{Z}}$ are unimodular.
+    \end{enumerate}
+    %%%%%%% 1a solution
+    
+    \explanation{\begin{mdframed}
+    \begin{solution*}
+    $\SL(n,\Z)$ is contained in $\Z^{n\times n}$, which is a discrete subset of $\bbR^{n\times n}$; it follows that $G_\Z$ is discrete in $G$ by restriction from $\bbR^{n\times n}$ to $G$. In addition, $G_\Z$ is unimodular since it is discrete (and so the Haar measure is the counting measure).
+    For $G$ we recall the fact that $|\det(x_{ij})|^{-1}\,dx_{11}\cdots dx_{nn} $ is the bi-invariant Haar measure in $\operatorname{GL}(n,\bbR)$ and that $G$ is a closed normal subgroup of $\operatorname{GL}(n,\bbR)$ (see the Lie Groups lecture notes, Proposition 2.3, on page 28).
+    \end{solution*}
+    \end{mdframed}
+    }
+    From this we know that $G/G_{\mathbb{Z}}$ admits a nonzero $G$-invariant measure $\mu$ which is unique up to a non-zero constant. In order to show that $G_{\mathbb{Z}}$ is a lattice we have to show that $\mu(G/G_{\mathbb{Z}})<\infty$. For this, we will use the following fact:
+    \begin{enumerate}[label=(\alph*),start=2]
+    \item Assume that there exists a measurable set $A\subseteq G$ of finite measure such that every $G_{\mathbb{Z}}$-orbit intersects $A$ (that is, for every $g\in G$ there exists some $\gamma\in G_{\mathbb{Z}}$ such that $g\gamma\in A$). Show that $\mu(G/G_{\mathbb{Z}})$ is finite.
+    %%%%%%% 1b solution
+    
+    \explanation{\begin{mdframed}
+    \begin{solution*}
+    Recall Weil's formula (Lie Groups notes, Theorem 2.4 on page 34) which for the (integrable) characteristic function $\chi_A$ of $A$ in $G$ states that
+    \begin{equation*}
+    \mu(A) = \int_G\chi_A(g)\, dg = \int_{G/G_\Z}\left(\int_{G_\Z}\chi_A(\gamma h)\, dh\right) \, d(\gamma G_\Z)
+    \end{equation*}
+    By the assumption the inner integral is always greater than some absolute constant depending only on the Haar measure of $G_\Z$, and so we infer that $\mu(A) \geq c\mu(G/G_{\Z})$.
+    \end{solution*}
+    \end{mdframed}}
+    
+    \end{enumerate}
+    \end{document}
