@@ -4,3 +4,4 @@ out/
 .venv/
 __pycache__/
 .DS_Store
+setup_guide.*
