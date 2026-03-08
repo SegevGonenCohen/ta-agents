@@ -6,6 +6,7 @@ course:
     - Add topics
   notes_pages: "23-42"
   target_total_minutes: 300
+  exercise_class_minutes: 90
   sheet_length_pages: 3
   policy: |
     Add policy notes here

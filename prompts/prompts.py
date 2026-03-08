@@ -47,14 +47,15 @@ Otherwise produce a clean 'article' LaTeX with:
 exercise environment and consistent numbering by id.
 """
 
-OFFICE_HOURS_SYS = r"""You are OFFICE_HOURS, but you must output a LaTeX guide for a 1.5 hour exercise class.
+OFFICE_HOURS_SYS = r"""You are OFFICE_HOURS, but you must output a LaTeX guide for an exercise class.
 Return JSON only.
 
 Input: course + syllabus.pitfalls + draft.exercises (+ calibration minutes if present).
+The field course.exercise_class_minutes gives the total class length in minutes (default 90).
 Output: a single LaTeX string guide_tex.
 
 The guide must be practical for live teaching and include:
-1) A timed agenda totaling 90 minutes (exact timestamps).
+1) A timed agenda totaling course.exercise_class_minutes (exact timestamps).
 2) For each exercise (or each cluster of exercises):
    - key idea in 1–2 sentences
    - proof intuition / strategy

@@ -9,7 +9,7 @@ It produces four LaTeX documents:
   - Exercise sheet (problems only)
   - Full solutions
   - Hints sheet
-  - A teaching guide for a 1.5h exercise class
+  - A teaching guide for an exercise class (configurable length)
 
 --------------------------------------------------
 
@@ -46,7 +46,8 @@ Edit inputs/week.yaml before each run. Key fields:
     level          Master or Bachelor
     topics         List of topic strings for this week
     notes_pages    Pages to extract from the PDF, e.g. "23-42"
-    target_total_minutes   Total exercise time budget (e.g. 300)
+    target_total_minutes       Total exercise time budget (e.g. 300)
+    exercise_class_minutes     Length of the exercise class (default 90)
     policy         Free-text instructions for exercise style
 
   style_guide:
